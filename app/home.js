@@ -5,11 +5,15 @@ import {
   Linking,
   ScrollView,
   Pressable,
+  TextInput,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import * as LocationGeocoding from "expo-location";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import Carousel from "../components/Carousel";
+import Categories from "../components/Categories";
 
 // How to Enable Location: Start
 
@@ -79,7 +83,7 @@ export default function home() {
       }
     }
   };
-  console.log("My Address", displayCurrentAddress);
+
   // How to Enable Location: End
 
   return (
@@ -94,24 +98,31 @@ export default function home() {
       >
         <SimpleLineIcons name="location-pin" size={24} color="#E52850" />
         <View style={{ flex: 1 }}>
-          <Text style={{ fonstSize: 15, fontWeight: "500" }}>Deliver To</Text>
-          <Text style={{ color: "gray", fonstSize: 16, marginTop: 3 }}>
+          <Text style={{ fontSize: 15, fontWeight: "500" }}>Deliver To</Text>
+          <Text style={{ color: "gray", fontSize: 16, marginTop: 3 }}>
             {displayCurrentAddress}
           </Text>
         </View>
-        <Pressable
-          style={{
-            backgroundColor: "#6CB4EE",
-            width: 40,
-            height: 40,
-            borderRadius: 20,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text>Hello</Text>
-        </Pressable>
       </View>
+      <View
+        className="flex-row items-center justify-between px-2 py-2 rounded-md my-2"
+        style={{
+          borderColor: "#c0c0c0",
+          borderWidth: 1,
+          width: 360,
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <TextInput
+          placeholder="Search for Food"
+          placeholderTextColor={"gray"}
+        ></TextInput>
+        <AntDesign name="search1" size={24} color="#e52b50" />
+      </View>
+      <Carousel />
+
+      <Categories />
     </ScrollView>
   );
 }
