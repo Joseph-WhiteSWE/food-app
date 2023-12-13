@@ -14,6 +14,7 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
+import Recommended from "../components/Recommended";
 
 // How to Enable Location: Start
 
@@ -121,8 +122,10 @@ export default function home() {
         <AntDesign name="search1" size={24} color="#e52b50" />
       </View>
       <Carousel />
-
       <Categories />
+      {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}> */}
+      <Recommended />
+      {/* </ScrollView> */}
     </ScrollView>
   );
 }
