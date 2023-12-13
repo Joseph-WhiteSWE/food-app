@@ -6,6 +6,7 @@ import {
   ScrollView,
   Pressable,
   TextInput,
+  Image,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
@@ -15,8 +16,10 @@ import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
 import Recommended from "../components/Recommended";
+import FoodTypes from "../components/FoodTypes";
+import Delivery from "../components/Delivery";
 
-// How to Enable Location: Start
+// how to enable location:start
 
 export default function home() {
   const [locationServicesEnabled, setLocationServicesEnabled] = useState(false);
@@ -85,7 +88,7 @@ export default function home() {
     }
   };
 
-  // How to Enable Location: End
+  // how to enable location:end
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
@@ -105,6 +108,7 @@ export default function home() {
           </Text>
         </View>
       </View>
+      {/* search bar element */}
       <View
         className="flex-row items-center justify-between px-2 py-2 rounded-md my-2"
         style={{
@@ -123,9 +127,33 @@ export default function home() {
       </View>
       <Carousel />
       <Categories />
-      {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}> */}
       <Recommended />
-      {/* </ScrollView> */}
+      <Text
+        style={{
+          textAlign: "center",
+          marginTop: 7,
+          letterSpacing: 4,
+          marginBottom: 5,
+          color: "gray",
+        }}
+      >
+        EXPLORE
+      </Text>
+      {/* will utilize the component below in htx eat and meet: start*/}
+      <FoodTypes />
+      <Text
+        style={{
+          textAlign: "center",
+          marginTop: 7,
+          letterSpacing: 4,
+          marginBottom: 5,
+          color: "gray",
+        }}
+      >
+        ALL RESTRUANTS
+      </Text>
+      <Delivery />
+      {/* will utilize the component below in htx eat and meet: end*/}
     </ScrollView>
   );
 }
