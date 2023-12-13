@@ -108,7 +108,7 @@ export default function home() {
           </Text>
         </View>
       </View>
-      {/* search bar element */}
+      {/* search bar element:start */}
       <View
         className="flex-row items-center justify-between px-2 py-2 rounded-md my-2"
         style={{
@@ -125,6 +125,7 @@ export default function home() {
         ></TextInput>
         <AntDesign name="search1" size={24} color="#e52b50" />
       </View>
+      {/* search bar element:end */}
       <Carousel />
       <Categories />
       <Recommended />
@@ -139,7 +140,7 @@ export default function home() {
       >
         EXPLORE
       </Text>
-      {/* will utilize the component below in htx eat and meet: start*/}
+      {/* will utilize the component in htx eat and meet: start*/}
       <FoodTypes />
       <Text
         style={{
@@ -153,7 +154,7 @@ export default function home() {
         ALL RESTRUANTS
       </Text>
       <Delivery />
-      {/* will utilize the component below in htx eat and meet: end*/}
+      {/* will utilize the component in htx eat and meet: end*/}
     </ScrollView>
   );
 }

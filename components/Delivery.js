@@ -1,7 +1,11 @@
 import { View, Text, ScrollView, Image, Pressable } from "react-native";
 import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 export default function Delivery() {
+  const router = useRouter();
   const hotels = [
     {
       id: "0",
@@ -22,8 +26,8 @@ export default function Delivery() {
         },
       ],
       name: "Hauz Khas Social",
-      cuisines: "North Indian • Fast Food • 160 for one",
-      time: "35 - 40 min • 1Km",
+      cuisines: "Western",
+      time: "40 min",
       average_cost_for_two: 1600,
       aggregate_rating: 4.3,
       adress: "9-A & 12, Hauz Khas Village, New Delhi",
@@ -345,11 +349,26 @@ export default function Delivery() {
         {hotels?.map((item, index) => (
           <View key={index} item={item}>
             <Pressable
+              onPress={() => {
+                router.push({
+                  pathname: "/hotel",
+                  params: {
+                    id: item.id,
+                    name: item.name,
+                    adress: item.adress,
+                    smalladress: item.smalladress,
+                    cuisines: item.cuisines,
+                    aggregate_rating: item.aggregate_rating,
+                  },
+                });
+              }}
               style={{
                 marginHorizontal: 6,
                 marginVertical: 12,
                 borderRadius: 20,
                 backgroundColor: "white",
+                borderWidth: 1,
+                borderColor: "#c8c8c8",
               }}
             >
               <Image
@@ -361,6 +380,90 @@ export default function Delivery() {
                 }}
                 source={{ uri: item?.featured_image }}
               />
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ paddingVertical: 4 }}>
+                  <Text
+                    style={{
+                      paddingHorizontal: 10,
+                      marginTop: 10,
+                      fontSize: 16,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {item?.name}
+                  </Text>
+                  <Text
+                    style={{
+                      paddingHorizontal: 10,
+                      marginTop: 3,
+                      fontSize: 15,
+                      fontWeight: "500",
+                      color: "gray",
+                    }}
+                  >
+                    {item?.cuisines}
+                  </Text>
+                  <Text
+                    style={{
+                      paddingHorizontal: 10,
+                      marginTop: 3,
+                      fontSize: 14,
+                      fontWeight: "500",
+                      color: "#505050",
+                    }}
+                  >
+                    {item?.time}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    backgroundColor: "#006a4e",
+                    borderRadius: 4,
+                    paddingHorizontal: 4,
+                    paddingVertical: 5,
+                    marginRight: 10,
+                    gap: 3,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    {item.aggregate_rating}
+                  </Text>
+                  <Ionicons name="ios-star" size={15} color="white" />
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 4,
+                  marginHorizontal: 7,
+                  marginVertical: 10,
+                }}
+              >
+                <MaterialCommunityIcons
+                  name="brightness-percent"
+                  size={24}
+                  color="#1f75fe"
+                />
+                <Text
+                  style={{ marginLeft: 2, color: "#1f75fe", fontWeight: "500" }}
+                >
+                  20% off up to $5
+                </Text>
+              </View>
             </Pressable>
           </View>
         ))}

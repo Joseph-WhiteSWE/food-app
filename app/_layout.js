@@ -10,13 +10,19 @@ export default function _layout() {
         options={{
           title: "Landing Screen",
         }}
-      ></Stack.Screen>
+      />
       <Stack.Screen
         name="home"
         options={{
           title: "Home Screen",
         }}
-      ></Stack.Screen>
+      />
+      <Stack.Screen
+        name="hotel"
+        options={{
+          title: "Hotel",
+        }}
+      />
     </Stack>
   );
 }
