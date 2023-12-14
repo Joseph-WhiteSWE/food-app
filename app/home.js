@@ -151,7 +151,7 @@ export default function home() {
           color: "gray",
         }}
       >
-        ALL RESTRUANTS
+        ALL RESTAURANTS
       </Text>
       <Delivery />
       {/* will utilize the component in htx eat and meet: end*/}
